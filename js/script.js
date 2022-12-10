@@ -1,11 +1,6 @@
 {
   ("use strict");
 
-  /*document.getElementById("test-button").addEventListener("click", function () {
-  const links = document.querySelectorAll(".titles a");
-  console.log("links:", links);
- }); */
-
   const titleClickHandler = function (event) {
     event.preventDefault();
     const clickedElement = this;
@@ -21,7 +16,6 @@
 
     /* add class 'active' to the clicked link */
     clickedElement.classList.add("active");
-
     console.log("clickedElement:", clickedElement);
 
     /* remove class 'active' from all articles */
@@ -33,7 +27,6 @@
 
     /* get 'href' attribute from the clicked link */
     const articleSelector = clickedElement.getAttribute("href");
-
     console.log(articleSelector);
 
     /* find the correct article using the selector (value of 'href' attribute) */
@@ -54,14 +47,17 @@
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = "";
 
-    /* for each article */
+    /* find all the articles and save them to variable: articles */
     const articles = document.querySelectorAll(optArticleSelector);
+
+    /* for each article */
     for (let article of articles) {
       console.log(article);
 
       /* get the article id  */
       const articleId = article.getAttribute("id");
       console.log(articleId);
+
       /* find the title element */
       const articleTitle = article.querySelector(optTitleSelector).innerHTML;
       console.log(articleTitle);
