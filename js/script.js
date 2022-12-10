@@ -82,11 +82,7 @@
       console.log(linkHTML);
 
       /* insert link into titleList */
-      /* FIRST BUT WORSE OPTION */
-      // titleList.innerHTML = titleList.innerHTML + linkHTML;
-
-      /* SECOND OPTION */
-      titleList.insertAdjacentHTML("beforeend", linkHTML);
+      titleList.innerHTML = titleList.innerHTML + linkHTML;
     }
   }
   generateTitleLinks();
