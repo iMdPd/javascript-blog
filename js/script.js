@@ -50,6 +50,8 @@
     /* find all the articles and save them to variable: articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
+    let html = "";
+
     /* for each article */
     for (let article of articles) {
       console.log(article);
@@ -76,13 +78,17 @@
       // titleList.innerHTML = titleList.innerHTML + linkHTML;
 
       /* SECOND OPTION */
-      titleList.insertAdjacentHTML("beforeend", linkHTML);
+      // titleList.insertAdjacentHTML("beforeend", linkHTML);
 
-      const links = document.querySelectorAll(".titles a");
+      /* LAST OPTION WITH HTML */
+      html = html + linkHTML;
+    }
+    titleList.innerHTML = html;
 
-      for (let link of links) {
-        link.addEventListener("click", titleClickHandler);
-      }
+    const links = document.querySelectorAll(".titles a");
+
+    for (let link of links) {
+      link.addEventListener("click", titleClickHandler);
     }
   }
   generateTitleLinks();
