@@ -207,4 +207,33 @@
     }
   };
   generateAuthors();
+
+  const authorClickHandler = function (event) {
+    /* prevent default action for this event */
+    /* make new constant named "clickedElement" and give it the value of "this" */
+    /* make a new constant "href" and read the attribute "href" of the clicked element */
+    /* make a new constant "author" and extract author from the "href" constant */
+    /* find all author links with class active */
+    /* START LOOP: for each active author link */
+    /* remove class active */
+    /* END LOOP: for each active author link */
+    /* find all author links with "href" attribute equal to the "href" constant */
+    /* START LOOP: for each found author link */
+    /* add class active */
+    /* END LOOP: for each found author link */
+    /* execute function "generateTitleLinks" with article selector as argument */
+  };
+
+  const addClickListenersToAuthors = function () {
+    /* find all links to authors */
+    const authorsLinks = document.querySelectorAll('a[href^="#author-"]');
+    /* START LOOP: for each link */
+    for (let authorLink of authorsLinks) {
+      /* add tagClickHandler as event listener for that link */
+      authorLink.addEventListener('click', authorClickHandler);
+      /* END LOOP: for each link */
+    }
+  };
+
+  addClickListenersToAuthors();
 }
