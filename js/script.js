@@ -4,7 +4,6 @@
   const titleClickHandler = function (event) {
     event.preventDefault();
     const clickedElement = this;
-    console.log(event);
 
     /* remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll('.titles a.active');
@@ -37,7 +36,8 @@
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
-    optArticleTagsSelector = '.post-tags .list';
+    optArticleTagsSelector = '.post-tags .list',
+    optArticleAuthorsSelector = '.post-author';
 
   const generateTitleLinks = function (customSelector = '') {
     /* remove content of titleList */
@@ -135,15 +135,12 @@
 
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-    console.log('Href from clickedElement: ', href);
 
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
-    console.log('tag: ', tag);
 
     /* find all tag links with class active */
     const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
-    console.log('activeTagLinks: ', activeTagLinks);
 
     /* START LOOP: for each active tag link */
     for (let activeTagLink of activeTagLinks) {
@@ -154,7 +151,6 @@
     }
     /* find all tag links with "href" attribute equal to the "href" constant */
     const equalTagLinks = document.querySelectorAll('a[href="' + href + '"]');
-    console.log('equalTagLinks:', equalTagLinks);
 
     /* START LOOP: for each found tag link */
     for (let equalTagLink of equalTagLinks) {
@@ -180,4 +176,18 @@
   };
 
   addClickListenersToTags();
+
+  /* GENERATE AUTHOR LIST */
+  const generateAuthors = function () {
+    /* find all articles */
+    /* START LOOP: for every article: */
+    /* find author wrapper */
+    /* make html variable with empty string */
+    /* get author from data-author attribute */
+    /* generate HTML of the link */
+    /* add generated code to html variable */
+    /* insert HTML of author into the author wrapper */
+    /* END LOOP: for every article: */
+  };
+  generateAuthors();
 }
