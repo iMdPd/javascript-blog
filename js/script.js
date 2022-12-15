@@ -180,14 +180,31 @@
   /* GENERATE AUTHOR LIST */
   const generateAuthors = function () {
     /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
+
     /* START LOOP: for every article: */
-    /* find author wrapper */
-    /* make html variable with empty string */
-    /* get author from data-author attribute */
-    /* generate HTML of the link */
-    /* add generated code to html variable */
-    /* insert HTML of author into the author wrapper */
-    /* END LOOP: for every article: */
+    for (let article of articles) {
+      /* find author wrapper */
+      const authorWrapper = article.querySelector(optArticleAuthorsSelector);
+
+      /* make html variable with empty string */
+      let html = '';
+
+      /* get author from data-author attribute */
+      const articleAuthor = article.getAttribute('data-author');
+
+      /* generate HTML of the link */
+      const linkAuthorHTML =
+        '<a href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
+
+      /* add generated code to html variable */
+      html = html + linkAuthorHTML;
+
+      /* insert HTML of author into the author wrapper */
+      authorWrapper.innerHTML = 'by' + ' ' + html;
+
+      /* END LOOP: for every article: */
+    }
   };
   generateAuthors();
 }
