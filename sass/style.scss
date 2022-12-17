@@ -96,13 +96,35 @@ body {
     padding-right: 5px;
   }
 }
+/* AUTHOR | TAG CLOUD */
+.authors li,
+.tags li {
+  display: inline-block;
+  margin-right: 5px;
+}
+.tag-size-1 {
+  opacity: 0.4;
+  font-size: 70%;
+}
+.author-size-1,
+.tag-size-2 {
+  opacity: 0.55;
+  font-size: 90%;
+}
+.author-size-2,
+.tag-size-3 {
+  opacity: 0.7;
+  font-size: 110%;
+}
+.author-size-3,
+.tag-size-4 {
+  opacity: 0.85;
+  font-size: 130%;
+}
 
-/* Authors */
-
-.authors {
-  li {
-    margin-bottom: 12px;
-  }
+.tag-size-5 {
+  opacity: 1;
+  font-size: 150%;
 }
 
 /* Post */
