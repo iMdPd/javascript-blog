@@ -395,7 +395,8 @@
     </script>
     <script id="template-author-cloud-link" type="text/x-handlebars-template">
       {{#each authors}}
-        <li><a class='{{className}}' href='#author-{{author}}'>{{author}}
+        <li><a href='#author-{{author}}'>{{author}}
+            ({{count}})
           </a></li>
       {{/each}}
     </script>

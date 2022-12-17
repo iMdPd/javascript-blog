@@ -48,10 +48,6 @@
       count: 5,
       prefix: 'tag-size-',
     },
-    cloudAuthorSizes: {
-      count: 3,
-      prefix: 'author-size-',
-    },
   };
 
   /* ____________________   TITLE CLICK HANDLER FUNCTION   ____________________ */
@@ -262,7 +258,6 @@
     }
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = templates.tagCloudLink(allTagsData);
-    console.log(allTagsData);
   };
   generateTags();
 
@@ -278,28 +273,6 @@
     }
   };
   addClickListenersToTags();
-
-  /* ____________________   CALCULATE AUTHOR MIN AND MAX PARAMETERS  ____________________ */
-  const calculateAuthorsParams = function (authors) {
-    const params = { max: 0, min: 999999 };
-
-    for (let articleAuthor in authors) {
-      params.min = Math.min(authors[articleAuthor], params.min);
-      params.max = Math.max(authors[articleAuthor], params.max);
-    }
-    return params;
-  };
-
-  /* ____________________   CALCULATE AUTHOR SIZE CLASS ____________________ */
-  const calculateAuthorClass = function (count, params) {
-    const normalizedCount = count - params.min;
-    const normalizedMax = params.max - params.min;
-    const percentage = normalizedCount / normalizedMax;
-    const classNumber = Math.floor(
-      percentage * (opts.cloudAuthorSizes.count - 1) + 1
-    );
-    return opts.cloudAuthorSizes.prefix + classNumber;
-  };
 
   /* ____________________   AUTHOR CLICK HANDLER FUNCTION   ____________________ */
   const authorClickHandler = function (event) {
@@ -387,28 +360,21 @@
 
     /* [NEW] find list of authors in right column */
     const authorList = document.querySelector(select.listOf.authors);
-    const authorsParams = calculateAuthorsParams(allAuthors);
 
     /* [NEW] create variable for all links HTML code */
     const allAuthorsData = { authors: [] };
 
     /* [NEW] START LOOP: for each aritcleAuthor in allAuthors: */
     for (let articleAuthor in allAuthors) {
-      /* [NEW] generate code of a link and add it to allAuthorsHTML */
-
+      /* [NEW] generate code of a link and add it to allAuthorsData */
       allAuthorsData.authors.push({
         author: articleAuthor,
         count: allAuthors[articleAuthor],
-        className: calculateAuthorClass(
-          allAuthors[articleAuthor],
-          authorsParams
-        ),
       });
-      console.log(allAuthorsData.authors.push);
-    }
-    /* [NEW] END LOOP: for each articleAuthor in allAuthors: */
 
-    /*[NEW] add HTML from allAuthorsHTML to authorList */
+      /* [NEW] END LOOP: for each articleAuthor in allAuthors: */
+    }
+    /*[NEW] add HTML from allAuthorsData to authorList */
     authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
   };
   generateAuthors();
